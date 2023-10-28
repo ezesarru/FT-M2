@@ -1,12 +1,23 @@
 import React from 'react';
-// import styledAnimals from './Animals.module.css'
 
-export default class Animals extends React.Component {
-  constructor(props) {
-    super();
-  }
+const Animals = ({ animals }) => {
+  return (
+    <div>
+      {animals.map(({ name, image, specie }) => {
+        return (
+          <div key={name}>
+            <h5>{name}</h5>
+            <img
+              src={image}
+              alt={name}
+              width='300px'
+            />
+            <span> {specie}</span>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
-  render() {
-    return <div></div>
-  }
-}
+export default Animals;

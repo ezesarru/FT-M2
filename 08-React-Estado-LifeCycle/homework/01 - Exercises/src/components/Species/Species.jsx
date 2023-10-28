@@ -1,7 +1,19 @@
-import React from "react";
-// import styledSpecies from "./Species.module.css";
+const Species = ({ species, handleSpecies, handleAllSpecies }) => {
+  return (
+    <div>
+      {species.map((spec, index) => (
+        <button
+          key={index}
+          onClick={handleSpecies}
+          value={spec}
+        >
+          {spec}
+        </button>
+      ))}
+      <button onClick={handleAllSpecies}>All Species</button>
+    </div>
+  );
+};
 
-export default function Species({ species, handleSpecies, handleAllSpecies }) {
-  // console.log(species);
-  return <div></div>
-}
+export default Species;
+
