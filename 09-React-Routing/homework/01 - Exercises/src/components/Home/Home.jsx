@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <div>
-      <img className={styleHome.logo} src={logo} alt="logo"  />
+      <img className={styleHome.logo} src={logo} alt="logo" />
       <Cards cruise={cruise} />
     </div>
   );

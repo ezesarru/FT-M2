@@ -20,7 +20,7 @@ export default function NavBar() {
         <div className={styleNav.options}>
           <li>
             <NavLink
-              className={({ isActive }) =>
+              className={(isActive) =>
                 isActive ? styleNav.active : styleNav.disable
               }
               to="/contact"

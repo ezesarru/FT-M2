@@ -1,23 +1,23 @@
-import React from 'react';
+import React from 'react'
 
 const Animals = ({ animals }) => {
   return (
     <div>
-      {animals.map(({ name, image, specie }) => {
-        return (
-          <div key={name}>
-            <h5>{name}</h5>
-            <img
-              src={image}
-              alt={name}
-              width='300px'
+      {
+        animals.map((animal, key) => 
+          <div key={key}>
+            <h5>{animal.name}</h5>
+            <img 
+              src={animal.image} 
+              alt={animal.name}
+              width='300px' 
             />
-            <span> {specie}</span>
+            <span> {animal.specie}</span>
           </div>
-        );
-      })}
+        )
+      }
     </div>
-  );
-};
+  )
+}
 
-export default Animals;
+export default Animals

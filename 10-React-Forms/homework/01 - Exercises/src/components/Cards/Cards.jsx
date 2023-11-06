@@ -3,7 +3,7 @@ import Card from "../Card/Card";
 import styleCards from "./Cards.module.css";
 
 export default function Cards({ music }) {
-  if (music) {
+  if(music){
     return (
       <div className={styleCards.container}>
         {music.map((c) => (

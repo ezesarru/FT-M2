@@ -1,19 +1,22 @@
-const Species = ({ species, handleSpecies, handleAllSpecies }) => {
-  return (
-    <div>
-      {species.map((spec, index) => (
-        <button
-          key={index}
-          onClick={handleSpecies}
-          value={spec}
-        >
-          {spec}
-        </button>
-      ))}
-      <button onClick={handleAllSpecies}>All Species</button>
-    </div>
-  );
-};
+import React from 'react'
 
-export default Species;
+const Species = ({ species, handleSpecies, handleAllSpecies }) => {
+  return(
+    <div>
+      <h5>Species: </h5>
+      {
+        species.map((specie, key) => 
+          <button 
+            key={key}
+            onClick={handleSpecies}
+            value={specie}
+          >{specie}</button>
+        )
+      }
+      <button onClick={handleAllSpecies}>All Animals!</button>
+    </div>
+  )
+}
+
+export default Species
 

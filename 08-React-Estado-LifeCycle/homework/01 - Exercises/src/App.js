@@ -1,10 +1,12 @@
-import React from "react";
-import Zoo from "./components/Zoo/Zoo.jsx";
+import React from "react"
+import Zoo from './components/Zoo/Zoo'
 
-export default function App() {
+const App = () => {
   return (
     <div>
-      <Zoo />
+      <Zoo/>
     </div>
-  );
+  )
 }
+
+export default App

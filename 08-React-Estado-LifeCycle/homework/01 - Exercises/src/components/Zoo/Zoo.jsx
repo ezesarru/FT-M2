@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from "react";
-import Animals from "../Animals/Animals";
-import Species from "../Species/Species";
-
+import React from "react"
+import Animals from "../Animals/Animals"
+import Species from "../Species/Species"
 
 const Zoo = () => {
 
-  const [zoo, setZoo] = useState({
+  const [zoo, setZoo] = React.useState({
     zooName: '',
     animals: [],
     species: [],
-    allAnimals: []
+    allAnimals: ''
   })
-
 
   const handleInputChange = (event) => {
     setZoo({
@@ -20,33 +18,26 @@ const Zoo = () => {
     })
   }
 
-
-  useEffect(() => {
+  React.useEffect(() => {
     fetch('http://localhost:3001/zoo')
-      .then((res) => res.json())
-      .then((data) =>
-        setZoo({ 
-          ...zoo,
-          animals: data.animals,
-          species: data.species,
-          allAnimals: data.animals,
-        })
-      )
-      .catch((error) => console.log(error));
+    .then((res) => res.json())
+    .then((data) => setZoo({
+      ...zoo,
+      animals: data.animals,
+      species: data.species,
+      allAnimals: data.animals
+    }))
+    .catch((error) => console.log(error))
   }, [])
 
-
   const handleSpecies = (event) => {
-
-    const specie = event.target.value
-
     setZoo({
       ...zoo,
-      animals: zoo.allAnimals.filter((anim) => anim.specie == specie)
+      animals: zoo.allAnimals.filter((animal) =>
+        animal.specie === event.target.value
+      )
     })
-    
   }
-
 
   const handleAllSpecies = () => {
     setZoo({
@@ -55,22 +46,24 @@ const Zoo = () => {
     })
   }
 
-
-  return (
+  return(
     <div>
-      <label>Zoo Name:  </label>
-      <input
-        type='text'
-        value={zoo.zooName}
-        onChange={handleInputChange}
+      <label htmlFor="searchB">Zoo Name: </label>
+      <input 
+        type="text" 
+        value={zoo.zooName} 
+        onChange={handleInputChange} 
+        name="searchB"
       />
       <h1>{zoo.zooName}</h1>
-      <Species
+      <Species 
         species={zoo.species}
         handleSpecies={handleSpecies}
         handleAllSpecies={handleAllSpecies}
       />
-      <Animals animals={zoo.animals} />
+      <Animals
+        animals={zoo.animals}
+      />
     </div>
   )
 }
