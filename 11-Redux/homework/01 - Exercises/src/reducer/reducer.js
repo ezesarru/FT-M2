@@ -1,4 +1,4 @@
-const { INCREMENTO, DECREMENTO } = require('../action-types');
+const { INCREMENTO, DECREMENTO } = require('../action-types/action-types');
 
 const initialState = {
   contador: 0
